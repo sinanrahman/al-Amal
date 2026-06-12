@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initThreeJS();
     initNav();
     initMobileMenu();
-    initSwiper();
+    initHorizontalScroll();
     initReveal();
     initCounters();
     initKPIBars();
@@ -271,37 +271,24 @@ function initMobileMenu() {
 }
 
 /* ─────────────────────────────────────────────────────────
-   SWIPER — Operational Carousel
+   HORIZONTAL SCROLL — Operations Showcase
 ───────────────────────────────────────────────────────── */
-function initSwiper() {
-    if (typeof Swiper === 'undefined') return;
+function initHorizontalScroll() {
+    const section = document.getElementById('carousel');
+    const inner = document.getElementById('ops-horizontal-inner');
+    
+    if (!section || !inner || typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
 
-    const countEl = document.getElementById('snav-count');
-    const total   = 5;
-
-    const sw = new Swiper('#ops-swiper', {
-        slidesPerView: 1.05,
-        spaceBetween: 16,
-        speed: 800,
-        grabCursor: true,
-        effect: 'slide',
-        pagination: { el: '.ops-pag', clickable: true },
-        navigation: {
-            nextEl: '#s-next',
-            prevEl: '#s-prev',
-        },
-        breakpoints: {
-            768:  { slidesPerView: 1.08, spaceBetween: 20 },
-            1100: { slidesPerView: 1.18, spaceBetween: 24 },
-        },
-        on: {
-            slideChange(swiper) {
-                if (countEl) {
-                    const idx = String(swiper.realIndex + 1).padStart(2, '0');
-                    const tot = String(total).padStart(2, '0');
-                    countEl.textContent = `${idx} / ${tot}`;
-                }
-            }
+    gsap.to(inner, {
+        x: () => -(inner.scrollWidth - window.innerWidth),
+        ease: "none",
+        scrollTrigger: {
+            trigger: section,
+            start: "top top",
+            end: () => `+=${inner.scrollWidth - window.innerWidth}`,
+            pin: true,
+            scrub: 1,
+            invalidateOnRefresh: true,
         }
     });
 }
