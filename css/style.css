@@ -161,6 +161,10 @@ img {
 }
 
 /* ─── UTILITIES ──────────────────────────────────────────── */
+.bi {
+    font-size: 1.5em; /* Enlarges Bootstrap icons globally */
+}
+
 .gold {
     color: var(--gold);
 }
@@ -2809,8 +2813,36 @@ img {
         grid-template-columns: 1fr;
     }
 
+    .exc-chart-card {
+        padding: 24px;
+    }
+
+    .ecc-hdr {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .ecc-chart {
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .ecc-chart::-webkit-scrollbar {
+        display: none;
+    }
+
     .ecc-bars {
-        gap: 10px;
+        position: relative;
+        min-width: 380px;
+        height: 180px;
+        gap: 12px;
+    }
+
+    .ecc-bg {
+        width: max(100%, 380px);
     }
 
     .oslide-body {
