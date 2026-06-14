@@ -20,6 +20,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
@@ -39,11 +42,14 @@
     <!-- ─────────────────────── PRELOADER ─────────────────────── -->
     <div id="preloader" class="preloader">
         <div class="pre-inner">
-            <div class="pre-logo-mark">
-                <img src="assets/images/logo.svg" alt="ANA Logo" style="width: 120px; height: auto;">
+            <div class="pre-logo-wrapper"
+                style="display: flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: 30px;">
+                <img src="assets/images/logo.svg" alt="ANA Logo" class="logo-mark" style="height: 120px; width: auto;">
+                <div class="logo-text" style="text-align: left;">
+                    <span style="color: #fff;">NOOR</span>
+                    <span style="color: #fff;">AL AMAL</span>
+                </div>
             </div>
-            <div class="pre-brand">NOOR AL AMAL</div>
-            <div class="pre-sub">AUTOMOTIVE GROUP &nbsp;·&nbsp; DUBAI, UAE</div>
             <div class="pre-track">
                 <div class="pre-fill" id="pre-fill"></div>
             </div>
@@ -64,17 +70,18 @@
     </div>
 
     <!-- Fixed Watermark -->
-    <div class="wm" aria-hidden="true"><img src="assets/images/logo.svg" alt="Logo"></div>
+    <div class="wm" aria-hidden="true"><img src="assets/images/noor logo svg-04.svg" alt="Logo"></div>
 
     <!-- ─────────────────────── NAVIGATION ─────────────────────── -->
     <header class="nav" id="nav">
         <div class="nav-inner">
 
             <a href="#" class="nav-logo" aria-label="Noor Al Amal Home">
-                <img src="assets/images/logo.svg" alt="ANA Logo" style="height: 32px; width: auto; margin-right: 10px;">
-                <div class="nav-logo-text">
-                    <span class="nlb">NOOR AL AMAL</span>
-                    <span class="nls">AUTOMOTIVE GROUP · DUBAI</span>
+                <img src="assets/images/logo.svg" alt="ANA Logo" class="logo-mark">
+
+                <div class="logo-text">
+                    <span>NOOR</span>
+                    <span>AL AMAL</span>
                 </div>
             </a>
 
@@ -131,42 +138,18 @@
 
     <main>
 
-        <!-- ═══════════════════════════════════════════════════════════
-     HERO
-═══════════════════════════════════════════════════════════ -->
-        <section class="hero" id="hero">
-
-            <!-- Background image / atmospheric layer -->
-            <div class="hero-bg">
-                <img src="assets/images/NAA main.jpg" alt="Noor Al Amal Automotive Warehouse Operations"
-                    class="hero-bg-img" loading="eager" fetchpriority="high">
-                <div class="hero-bg-overlay"></div>
-                <div class="hero-bg-gradient"></div>
-                <!-- Emerald accent glow -->
-                <div class="hero-glow-em"></div>
-                <div class="hero-glow-tl"></div>
-            </div>
-
+        <!-- hero section -->
+        <section class="hero">
             <div class="hero-content">
-                <div class="container">
-                    <div class="hero-text-wrap">
-                        <div class="hero-main-row" data-reveal="hero">
-                            <h1 class="hero-h1">
-                                Automotive<br>Excellence<sup style="font-size: 0.4em; vertical-align: top;">™</sup>
-                            </h1>
-                            <p class="hero-lead">
-                                We provide businesses with expert advice to help them successfully navigate the automotive market.<br><br>
-                                An integrated ecosystem of trading, service, and logistics.
-                            </p>
-                        </div>
-                        <a href="#verticals" class="hero-scroll-circle" data-reveal="hero" aria-label="Scroll down">
-                            <svg width="24" height="36" viewBox="0 0 24 36" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="2" y="2" width="20" height="32" rx="10" />
-                                <circle cx="12" cy="10" r="1.5" fill="currentColor" stroke="none" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
+                <h1>
+                    Automotive <br>
+                    Excellence<span>™</span>
+                </h1>
+
+                <p>
+                    We provide businesses with expert advice to help<br>
+                    them successfully navigate the automotive market.
+                </p>
             </div>
         </section>
 
@@ -175,68 +158,20 @@
 ═══════════════════════════════════════════════════════════ -->
         <section class="section brands-sec">
             <div class="container">
-                <div class="brands-layout">
-                    <div class="brands-title-col">
-                        <h2 class="brands-h2">We Are<br>Partnered With</h2>
-                        <button class="brand-nav-btn prev" aria-label="Previous brands">❮</button>
-                    </div>
-                    <div class="brands-slider-col">
-                        <div class="brands-track">
-                            <div class="brand-item">
-                                <div class="brand-box">
-                                    <img src="assets/icons/Nissan.png" alt="Nissan">
-                                </div>
-                            </div>
-                            <div class="brand-item">
-                                <div class="brand-box">
-                                    <img src="assets/icons/lexus.png" alt="Lexus">
-                                </div>
-                            </div>
-                            <div class="brand-item">
-                                <div class="brand-box">
-                                    <img src="assets/icons/honda.png" alt="Honda">
-                                </div>
-                            </div>
-                            <div class="brand-item">
-                                <div class="brand-box">
-                                    <img src="assets/icons/kia.png" alt="Kia">
-                                </div>
-                            </div>
-                            <div class="brand-item">
-                                <div class="brand-box">
-                                    <img src="assets/icons/infiniti.png" alt="Infiniti">
-                                </div>
-                            </div>
-                            <div class="brand-item">
-                                <div class="brand-box">
-                                    <img src="assets/icons/renault.png" alt="Renault">
-                                </div>
-                            </div>
-                            <div class="brand-item">
-                                <div class="brand-box">
-                                    <img src="assets/icons/mazda.png" alt="Mazda">
-                                </div>
-                            </div>
-                            <div class="brand-item">
-                                <div class="brand-box">
-                                    <img src="assets/icons/toyota.png" alt="Toyota">
-                                </div>
-                            </div>
-                            <div class="brand-item">
-                                <div class="brand-box">
-                                    <img src="assets/icons/hyundai.png" alt="Hyundai">
-                                </div>
-                            </div>
-                            <div class="brand-item">
-                                <div class="brand-box">
-                                    <img src="assets/icons/mitsubishi.png" alt="Mitsubishi">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="brands-nav-right">
-                        <button class="brand-nav-btn next" aria-label="Next brands">❯</button>
-                    </div>
+                <div class="brands-header">
+                    <h2>We Are<br>Partnered With</h2>
+                </div>
+                <div class="brands-grid">
+                    <div class="brand-box"><img src="assets/icons/Nissan.png" alt="Nissan"></div>
+                    <div class="brand-box"><img src="assets/icons/lexus.png" alt="Lexus"></div>
+                    <div class="brand-box"><img src="assets/icons/honda.png" alt="Honda"></div>
+                    <div class="brand-box"><img src="assets/icons/kia.png" alt="Kia"></div>
+                    <div class="brand-box"><img src="assets/icons/infiniti.png" alt="Infiniti"></div>
+                    <div class="brand-box"><img src="assets/icons/renault.png" alt="Renault"></div>
+                    <div class="brand-box"><img src="assets/icons/mazda.png" alt="Mazda"></div>
+                    <div class="brand-box"><img src="assets/icons/toyota.png" alt="Toyota"></div>
+                    <div class="brand-box"><img src="assets/icons/hyundai.png" alt="Hyundai"></div>
+                    <div class="brand-box"><img src="assets/icons/mitsubishi.png" alt="Mitsubishi"></div>
                 </div>
             </div>
         </section>
@@ -249,6 +184,7 @@
             <div class="container">
                 <div class="ops-header">
                     <div>
+                        <i class="bi bi-car-front sec-icon reveal"></i>
                         <div class="sec-label reveal">Core Capabilities</div>
                         <h2 class="sec-h2 reveal">Operations<br><em class="gold">Showcase</em></h2>
                     </div>
@@ -395,11 +331,12 @@
         <section class="section ov-sec" id="overview">
             <!-- Accent background -->
             <div class="sec-glow-em" aria-hidden="true"></div>
-            <img src="assets/icons/performance.png" alt="" class="scatter-icon" style="top: 50px; right: 5%;">
+
 
             <div class="container">
                 <div class="ov-layout">
                     <div class="ov-left">
+                        <i class="bi bi-building sec-icon reveal"></i>
                         <div class="sec-label reveal">Institutional Profile</div>
                         <h2 class="sec-h2 reveal">
                             An Integrated<br>
@@ -450,8 +387,9 @@
      BUSINESS VERTICALS
 ═══════════════════════════════════════════════════════════ -->
         <section class="section vt-sec" id="verticals">
-            <img src="assets/icons/engineering_excellence.png" alt="" class="scatter-icon" style="top: 140px; right: 8%;">
+
             <div class="container">
+                <i class="bi bi-speedometer2 sec-icon reveal"></i>
                 <div class="sec-label reveal">Core Capabilities</div>
                 <h2 class="sec-h2 reveal">Business<br><em class="gold">Verticals</em></h2>
             </div>
@@ -588,11 +526,12 @@
 ═══════════════════════════════════════════════════════════ -->
         <section class="section exc-sec" id="excellence">
             <div class="sec-glow-tl" aria-hidden="true"></div>
-            <img src="assets/icons/automotive_identity.png" alt="" class="scatter-icon" style="top: 300px; right: 12%;">
+
             <div class="container">
 
                 <div class="exc-hdr">
                     <div class="exc-hdr-left">
+                        <i class="bi bi-tools sec-icon reveal"></i>
                         <div class="sec-label reveal">Performance Dashboard</div>
                         <h2 class="sec-h2 reveal">Operational<br><em class="gold">Excellence</em></h2>
                         <p class="sec-body reveal">Data-driven workflows guarantee rapid processing, parts availability,
@@ -697,7 +636,8 @@
 ═══════════════════════════════════════════════════════════ -->
         <section class="section traj-sec" id="trajectory">
             <div class="container">
-                <div class="sec-label reveal">Corporate Timeline</div>
+                <i class="bi bi-graph-up-arrow sec-icon reveal"></i>
+                <div class="sec-label reveal">Financial Trajectory</div>
                 <h2 class="sec-h2 reveal">The 2030 Strategic<br><em class="gold">Trajectory</em></h2>
                 <p class="sec-body reveal" style="margin-bottom:90px;max-width:580px">A phased approach to regional
                     automotive leadership — structured for scalable execution, investor transparency, and measurable
@@ -792,12 +732,13 @@
 ═══════════════════════════════════════════════════════════ -->
         <section class="section inv-sec" id="investors">
             <div class="sec-glow-em" style="top:auto;bottom:-30%;left:-20%;right:auto;" aria-hidden="true"></div>
-            <img src="assets/icons/forward_movement.png" alt="" class="scatter-icon" style="top: 60px; right: 5%;">
+
             <div class="container">
                 <div class="inv-layout">
 
                     <div class="inv-left">
-                        <div class="sec-label reveal">Capital Markets</div>
+                        <i class="bi bi-diagram-3 sec-icon reveal"></i>
+                        <div class="sec-label reveal">Corporate Integration</div>
                         <h2 class="sec-h2 reveal">Institutional<br><em class="gold">Partnerships</em></h2>
                         <p class="sec-body reveal">Noor Al Amal is structured for scalable growth. We invite
                             strategic partners and stakeholders to engage with our leadership team regarding our
@@ -866,11 +807,12 @@
      CORPORATE INQUIRY
 ═══════════════════════════════════════════════════════════ -->
         <section class="section contact-sec" id="contact">
-            <img src="assets/icons/reliability.png" alt="" class="scatter-icon" style="top: 60px; right: 5%;">
+
             <div class="container">
                 <div class="contact-layout">
 
                     <div class="contact-left">
+                        <i class="bi bi-envelope-paper sec-icon reveal"></i>
                         <div class="sec-label reveal">Executive Contact</div>
                         <h2 class="sec-h2 reveal">Corporate &amp;<br><em class="gold">Investor</em><br>Inquiries</h2>
                         <p class="sec-body reveal">Connect with our corporate development office in Dubai to explore
@@ -981,11 +923,10 @@
             <div class="footer-top">
                 <div class="footer-brand">
                     <a href="#" class="nav-logo">
-                        <img src="assets/images/logo.svg" alt="ANA Logo"
-                            style="height: 32px; width: auto; margin-right: 10px;">
-                        <div class="nav-logo-text">
-                            <span class="nlb">NOOR AL AMAL</span>
-                            <span class="nls">AUTOMOTIVE GROUP · DUBAI</span>
+                        <img src="assets/images/logo.svg" alt="ANA Logo" class="logo-mark">
+                        <div class="logo-text">
+                            <span>NOOR</span>
+                            <span>AL AMAL</span>
                         </div>
                     </a>
                     <p class="footer-desc">Engineering institutional growth, supply chains, and premium vehicle
