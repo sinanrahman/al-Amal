@@ -554,6 +554,7 @@ img {
     width: 100%;
     height: var(--nav-h);
     z-index: 800;
+    border-bottom: 1px solid var(--border);
     transition: height 0.4s var(--ease), background 0.5s ease,
         border-bottom 0.4s ease, backdrop-filter 0.5s ease;
 }
@@ -756,18 +757,6 @@ img {
     color: var(--gold);
 }
 
-.l-sep {
-    opacity: 0.3;
-}
-
-.l-alt {
-    cursor: pointer;
-    transition: color 0.2s;
-}
-
-.l-alt:hover {
-    color: var(--text-2);
-}
 
 /* Burger */
 .burger {
@@ -806,7 +795,7 @@ img {
     width: 100%;
     background: rgba(10, 10, 10, 0.97);
     backdrop-filter: blur(24px);
-    border-bottom: 1px solid var(--border);
+    border-bottom: none;
     display: flex;
     flex-direction: column;
     padding: 0;
@@ -819,6 +808,7 @@ img {
 .mob-menu.open {
     max-height: 100vh;
     padding: 36px 56px 48px;
+    border-bottom: 1px solid var(--border);
 }
 
 [data-theme="light"] .mob-menu {
@@ -1686,10 +1676,6 @@ img {
     border-radius: 1px;
 }
 
-.kpi-ok {
-    border-color: rgba(100, 200, 100, 0.25) !important;
-    color: #6BC47D !important;
-}
 
 .kpi-val {
     font-family: var(--f-display);
@@ -2819,6 +2805,20 @@ img {
         grid-template-columns: 1fr;
     }
 
+    .ovs-n {
+        font-size: 2rem;
+        margin-bottom: 8px;
+    }
+
+    .ovs-label {
+        font-size: 0.55rem;
+        margin-bottom: 8px;
+    }
+
+    .ovs-body {
+        font-size: 0.75rem;
+    }
+
     .footer-links {
         grid-template-columns: 1fr;
     }
@@ -2838,6 +2838,7 @@ img {
         overflow-y: hidden;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
+        padding-top: 30px;
     }
 
     .ecc-chart::-webkit-scrollbar {
@@ -2846,13 +2847,13 @@ img {
 
     .ecc-bars {
         position: relative;
-        min-width: 380px;
+        min-width: 480px;
         height: 180px;
         gap: 12px;
     }
 
     .ecc-bg {
-        width: max(100%, 380px);
+        width: max(100%, 480px);
     }
 
     .oslide-body {
@@ -2872,19 +2873,54 @@ img {
     }
 
     .sec-body, .vcp-body, .tl-p, .kpi-desc {
-        font-size: 0.85rem;
+        font-size: 0.75rem;
+    }
+
+    .kpi-lbl {
+        font-size: 0.5rem;
+    }
+
+    .kpi-tag {
+        font-size: 0.42rem;
     }
 
     .vcp-h3, .oslide-title, .tl-h4 {
-        font-size: clamp(1.4rem, 5vw, 1.8rem);
+        font-size: clamp(1.1rem, 4.5vw, 1.3rem);
+        margin-bottom: 10px;
+    }
+
+    .oslide-text {
+        font-size: 0.75rem;
+        margin-bottom: 16px;
+    }
+
+    .oslide-tag {
+        font-size: 0.5rem;
+        margin-bottom: 8px;
+    }
+
+    .oslide-metrics {
+        padding: 12px 0;
+        margin-bottom: 12px;
+    }
+
+    .osm-n {
+        font-size: 1rem;
+    }
+
+    .osm-l {
+        font-size: 0.45rem;
     }
 
     .kpi-val, .vcm-n, .inv-st-n {
-        font-size: 2.2rem;
+        font-size: 1.8rem;
     }
-    
     .vip-num {
         font-size: 4rem;
+    }
+
+    .inv-panel {
+        padding: 24px;
     }
 
     .inv-stats {
@@ -2893,5 +2929,11 @@ img {
 
     .inv-st {
         padding: 18px;
+    }
+
+    .btn-gold, .btn-ghost {
+        white-space: normal;
+        padding: 14px 20px;
+        letter-spacing: 1.5px;
     }
 }
