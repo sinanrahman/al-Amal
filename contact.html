@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Noor Al Amal Automotive Group | Dubai, UAE</title>
+    <title>Contact Us | Noor Al Amal Automotive Group</title>
     <meta name="description"
         content="Noor Al Amal Automotive Group — an institutional-grade automotive enterprise. Spare parts, workshop, vehicle trading, and cross-border logistics. Dubai, UAE.">
     <meta name="keywords"
@@ -23,8 +23,27 @@
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+    <style>
+        .hover-text-red {
+            transition: color 0.3s;
+        }
+
+        .hover-text-red:hover {
+            color: #ed1c24 !important;
+            cursor: pointer;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            text-align: center;
+        }
+    </style>
 
     <link rel="stylesheet" href="css/style.css">
 
@@ -38,8 +57,6 @@
 </head>
 
 <body>
-
-
     <!-- Cursor -->
     <div id="cur-ring" class="cur-ring"></div>
     <div id="cur-dot" class="cur-dot"></div>
@@ -116,147 +133,115 @@
             <a href="index.html#contact" class="mm-link mm-cta">Become a Franchise Partner</a>
         </div>
     </header>
-    <main class="page-content" style="background: white;">
-        <section class="section vt-sec" style="padding:0;">
-            <div class="container" style="display:none;"></div>
-            <!-- V1: Spare Parts -->
-            <div id="spare-parts" class="vt-row vt-row-rev section-pt-80"
-                style="border-top:none; min-height: calc(100vh - 100px);">
-                <div class="vt-img-panel vip-1">
-                    <div class="vip-inner">
-                        <div class="vip-grid-pattern">
-                            <img src="assets/images/spare-parts-2.jpeg" alt="">
-                        </div>
-                        <div class="vip-glow"></div>
-                        <div class="vip-tag">SUPPLY CHAIN</div>
-                        <div class="vip-num gold">01</div>
+
+    <main>
+        <!-- ═══════════════════════════════════════════════════════════
+     CORPORATE INQUIRY
+═══════════════════════════════════════════════════════════ -->
+        <section class="section contact-sec standalone-page-sec" id="contact"
+            style="background: radial-gradient(circle at 0% 0%, rgba(237, 28, 36, 0.03) 0%, transparent 50%), radial-gradient(circle at 100% 100%, rgba(237, 28, 36, 0.03) 0%, transparent 50%);">
+            <div class="container">
+                <div class="contact-layout">
+
+                    <div class="contact-left">
+                        <i class="bi bi-envelope-paper sec-icon reveal"></i>
+                        <div class="sec-label reveal">Executive Contact</div>
+                        <h2 class="sec-h2 reveal">Let’s build the future of<br><em class="gold">Automobile
+                                Business</em><br>together</h2>
+                        <p class="sec-body reveal" style="margin-top: 60px;">Whether you are a customer, garage owner,
+                            franchise investor, spare parts supplier, institutional buyer, vehicle dealer, or strategic
+                            investor, we are ready to collaborate.</p>
+
                     </div>
-                </div>
-                <div class="vt-content-panel">
-                    <div class="vcp-inner">
-                        <span class="vcp-tag reveal">Wholesale & Retail</span>
-                        <h3 class="vcp-h3 reveal">Spare Parts<br>Trading</h3>
-                        <p class="vcp-body reveal">Our spare parts division focuses on high-demand automobile components
-                            through wholesale and retail channels. We serve vehicle owners, garages, fleet operators,
-                            resellers, and institutional buyers with reliable availability and transparent
-                            pricing.<br><br><strong style="color: var(--text);">Key areas:</strong> engine parts, brake
-                            systems, suspension, electrical components, lubricants, filters, body parts, accessories,
-                            tyres, batteries and fast-moving parts.</p>
-                        <div class="vcp-metrics reveal">
-                            <div class="vcm"><span class="vcm-n">10,000+</span><span class="vcm-l">Active SKUs</span>
+
+                    <div class="contact-right">
+                        <div class="form-glass reveal">
+                            <div class="fg-header">
+                                <span class="fg-title">Secure Executive Inquiry</span>
+                                <span class="fg-enc">
+                                    <svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor"
+                                        stroke-width="1.5">
+                                        <rect x="2" y="7" width="12" height="8" rx="1" />
+                                        <path d="M5 7V5a3 3 0 0 1 6 0v2" />
+                                    </svg>
+                                    256-bit encrypted
+                                </span>
                             </div>
-                            <div class="vcm"><span class="vcm-n">98%</span><span class="vcm-l">Fill Rate</span></div>
-                            <div class="vcm"><span class="vcm-n">48h</span><span class="vcm-l">Fulfilment SLA</span>
+                            <form id="inq-form" novalidate>
+                                <div class="fld">
+                                    <label for="f-name">Full Name</label>
+                                    <input type="text" id="f-name" placeholder="Your full name" required
+                                        maxlength="100">
+                                    <span class="fld-err">Please enter your name</span>
+                                </div>
+                                <div class="fld">
+                                    <label for="f-org">Organization</label>
+                                    <input type="text" id="f-org" placeholder="Fund / Enterprise / Institution" required
+                                        maxlength="120">
+                                    <span class="fld-err">Please enter your organization</span>
+                                </div>
+                                <div class="fld">
+                                    <label for="f-cat">Inquiry Category</label>
+                                    <div class="sel-wrap">
+                                        <select id="f-cat" required>
+                                            <option value="" disabled selected>Select category</option>
+                                            <option>Spare Parts Enquiry</option>
+                                            <option>Workshop / Garage Franchise</option>
+                                            <option>Used Vehicle Trading</option>
+                                            <option>Import / Export Partnership</option>
+                                            <option>Institutional Partnership</option>
+                                            <option>Corporate / Investor Enquiry</option>
+                                            <option>General Business Enquiry</option>
+                                        </select>
+                                        <svg class="sel-ico" viewBox="0 0 12 12" width="12" height="12" fill="none"
+                                            stroke="currentColor" stroke-width="1.5">
+                                            <polyline points="2 4 6 8 10 4" />
+                                        </svg>
+                                    </div>
+                                    <span class="fld-err">Please select a category</span>
+                                </div>
+                                <div class="fld">
+                                    <label for="f-msg">
+                                        Message
+                                        <span class="char-cnt" id="char-cnt">0 / 500</span>
+                                    </label>
+                                    <textarea id="f-msg" rows="4" maxlength="500"
+                                        placeholder="Brief summary of your requirements..." required></textarea>
+                                    <span class="fld-err">Please provide a message</span>
+                                </div>
+                                <button type="submit" class="btn-gold btn-sub" id="sub-btn">Submit Secure
+                                    Inquiry</button>
+                            </form>
+
+                            <!-- Success state -->
+                            <div class="fg-success" id="fg-success">
+                                <div class="fg-success-icon">
+                                    <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="#ED1C24"
+                                        stroke-width="1.5">
+                                        <circle cx="24" cy="24" r="22" />
+                                        <polyline points="14 24 21 31 34 17" />
+                                    </svg>
+                                </div>
+                                <h4>Inquiry Received</h4>
+                                <p>Our Corporate Relations team will contact you within 24 business hours.</p>
+                                <button type="button" class="btn-ghost" style="margin-top:4px" id="fg-reset">Send
+                                    Another</button>
                             </div>
                         </div>
-                        <a href="#contact" class="btn-gold reveal">Inquire About Partnership</a>
                     </div>
+
                 </div>
             </div>
-
-
-            <div id="workshop" class="vt-row vt-row-rev section-pt-80"
-                style="border-top:none; min-height: calc(100vh - 100px);">
-                <div class="vt-img-panel vip-2">
-                    <div class="vip-inner">
-                        <div class="vip-grid-pattern">
-                            <img src="assets/images/workshop-2.jpeg" alt="">
-                        </div>
-                        <div class="vip-glow"></div>
-                        <div class="vip-tag">WORKSHOP</div>
-                        <div class="vip-num gold">02</div>
-                    </div>
-                </div>
-                <div class="vt-content-panel">
-                    <div class="vcp-inner">
-                        <span class="vcp-tag reveal">Service & Support</span>
-                        <h3 class="vcp-h3 reveal" style="font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1;">Workshop,
-                            Garage<br>& Franchise Network</h3>
-                        <p class="vcp-body reveal">We are building a scalable workshop and garage network through
-                            company-owned branches and franchise partnerships. The model includes service SOPs, brand
-                            support, training, parts supply, customer management, quality control, and marketing
-                            support.</p>
-                        <div class="vcp-metrics reveal">
-                            <div class="vcm"><span class="vcm-n">15,000+</span><span class="vcm-l">Annual
-                                    Services</span></div>
-                            <div class="vcm"><span class="vcm-n">94%</span><span class="vcm-l">First-Fix Rate</span>
-                            </div>
-                            <div class="vcm"><span class="vcm-n">24h</span><span class="vcm-l">Turnaround SLA</span>
-                            </div>
-                        </div>
-                        <a href="#contact" class="btn-gold reveal">Inquire About Partnership</a>
-                    </div>
-                </div>
-            </div>
-
-
-            <div id="trading" class="vt-row vt-row-rev section-pt-80"
-                style="border-top:none; min-height: calc(100vh - 100px);">
-                <div class="vt-img-panel vip-3">
-                    <div class="vip-inner">
-                        <div class="vip-grid-pattern">
-                            <img src="assets/images/used-cars.jpeg" alt="">
-                        </div>
-                        <div class="vip-glow"></div>
-                        <div class="vip-tag">TRADING</div>
-                        <div class="vip-num gold">03</div>
-                    </div>
-                </div>
-                <div class="vt-content-panel">
-                    <div class="vcp-inner">
-                        <span class="vcp-tag reveal">Certified Quality</span>
-                        <h3 class="vcp-h3 reveal" style="font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1;">Used
-                            Vehicle Trading<br>& Certified Resale</h3>
-                        <p class="vcp-body reveal">This division focuses on structured buying, selling, inspection,
-                            valuation, refurbishment, and resale of pre-owned vehicles. The customer promise is
-                            transparent pricing, verified inspection, documentation support, and a professional resale
-                            process.</p>
-                        <div class="vcp-metrics reveal">
-                            <div class="vcm"><span class="vcm-n">AED 85M</span><span class="vcm-l">Asset Backing</span>
-                            </div>
-                            <div class="vcm"><span class="vcm-n">3.2x</span><span class="vcm-l">Velocity</span></div>
-                            <div class="vcm"><span class="vcm-n">60 Days</span><span class="vcm-l">Avg. Cycle</span>
-                            </div>
-                        </div>
-                        <a href="#contact" class="btn-gold reveal">Inquire About Partnership</a>
-                    </div>
-                </div>
-            </div>
-
-
-            <div id="logistics" class="vt-row vt-row-rev section-pt-80"
-                style="border-top:none; min-height: calc(100vh - 100px);">
-                <div class="vt-img-panel vip-4">
-                    <div class="vip-inner">
-                        <div class="vip-grid-pattern">
-                            <img src="assets/images/import-export-2.jpeg" alt="">
-                        </div>
-                        <div class="vip-glow"></div>
-                        <div class="vip-tag">LOGISTICS</div>
-                        <div class="vip-num gold">04</div>
-                    </div>
-                </div>
-                <div class="vt-content-panel">
-                    <div class="vcp-inner">
-                        <span class="vcp-tag reveal">Global Trade</span>
-                        <h3 class="vcp-h3 reveal">Import &amp; Export<br>Solutions</h3>
-                        <p class="vcp-body reveal">The import-export division connects international suppliers,
-                            manufacturers, spare parts distributors, garage equipment suppliers, and regional automobile
-                            markets through sourcing, documentation support, and long-term trade partnerships.</p>
-                        <div class="vcp-metrics reveal">
-                            <div class="vcm"><span class="vcm-n">Global</span><span class="vcm-l">Trade Corridors</span>
-                            </div>
-                            <div class="vcm"><span class="vcm-n">100%</span><span class="vcm-l">Compliance</span></div>
-                            <div class="vcm"><span class="vcm-n">72h</span><span class="vcm-l">Clearance SLA</span>
-                            </div>
-                        </div>
-                        <a href="#contact" class="btn-gold reveal">Inquire About Partnership</a>
-                    </div>
-                </div>
-            </div>
-
         </section>
+
     </main>
+
+
+    </main>
+
+    <!-- ═══════════════════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════════════════ -->
     <footer class="footer">
         <div class="footer-wm" aria-hidden="true"><img src="assets/images/logo.svg" alt="ANA Watermark"></div>
         <div class="container">
@@ -266,8 +251,9 @@
                         <img src="assets/images/noor-logo-dark.png" alt="ANA Logo" class="logo-mark dark-logo">
                         <img src="assets/images/noor-logo-light.svg" alt="ANA Logo" class="logo-mark light-logo">
                     </a>
-                    <p class="footer-desc">Engineering institutional growth, supply chains, and premium vehicle
-                        operations across the Middle East. Headquartered in Dubai, UAE.</p>
+                    <p class="footer-desc">Noor Al Amal Building the future of automobile trade, service, franchise,
+                        and mobility solutions.
+                    </p>
                     <div class="footer-socials">
                         <a href="#" aria-label="LinkedIn" class="soc">
                             <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
@@ -327,6 +313,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/main.js"></script>
 </body>
 

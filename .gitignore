@@ -1,0 +1,6 @@
+*.py
+*.tldr
+*WhatsApp Image*
+.DS_Store
+node_modules
+.env

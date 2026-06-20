@@ -134,6 +134,8 @@ function initLenis() {
         smoothWheel: true,
     });
 
+    window.lenis = lenis;
+
     lenis.on('scroll', ({ scroll, limit }) => {
         const fill = document.getElementById('sprog-fill');
         if (fill) fill.style.width = (scroll / (limit || 1) * 100) + '%';
@@ -261,6 +263,12 @@ function initMobileMenu() {
         burger.classList.toggle('active', open);
         burger.setAttribute('aria-expanded', open);
         menu.setAttribute('aria-hidden', !open);
+
+        document.body.style.overflow = open ? 'hidden' : '';
+        if (window.lenis) {
+            if (open) window.lenis.stop();
+            else window.lenis.start();
+        }
     });
 
     menu.querySelectorAll('.mm-link').forEach(link => {
@@ -268,6 +276,9 @@ function initMobileMenu() {
             menu.classList.remove('open');
             burger.classList.remove('active');
             burger.setAttribute('aria-expanded', 'false');
+
+            document.body.style.overflow = '';
+            if (window.lenis) window.lenis.start();
         });
     });
 }
@@ -353,8 +364,8 @@ function initCounters() {
             const start = performance.now();
 
             (function tick(now) {
-                const p  = Math.min((now - start) / dur, 1);
-                const e  = 1 - Math.pow(1 - p, 3);
+                const p = Math.min((now - start) / dur, 1);
+                const e = 1 - Math.pow(1 - p, 3);
                 el.textContent = isInt
                     ? Math.ceil(target * e).toLocaleString()
                     : (target * e).toFixed(1).toLocaleString();
@@ -556,13 +567,25 @@ function initBrandsSlider() {
 function initPerformanceCharts() {
     if (typeof Chart === 'undefined') return;
 
-    // Common options for dark theme
-    Chart.defaults.color = 'rgba(255, 255, 255, 0.6)';
+    function getChartColors() {
+        const isL = document.documentElement.getAttribute('data-theme') === 'light';
+        return {
+            isL,
+            text: isL ? 'rgba(0, 0, 0, 0.6)' : 'rgba(255, 255, 255, 0.6)',
+            grid: isL ? 'rgba(0, 0, 0, 0.05)' : 'rgba(255, 255, 255, 0.05)',
+            rev: isL ? '#000000' : '#ffffff'
+        };
+    }
+    let cColors = getChartColors();
+
+    Chart.defaults.color = cColors.text;
     Chart.defaults.font.family = '"Inter", sans-serif';
+    
+    let mChart, tChart, cChart;
 
     const mCtx = document.getElementById('marketGraph');
     if (mCtx) {
-        new Chart(mCtx, {
+        mChart = new Chart(mCtx, {
             type: 'line',
             data: {
                 labels: ['2025', '2026', '2027', '2028', '2029', '2030'],
@@ -570,32 +593,32 @@ function initPerformanceCharts() {
                     {
                         label: 'Aftermarket Parts USD Bn',
                         data: [490, 505, 520, 540, 560, 580],
-                        borderColor: '#2196f3',
-                        backgroundColor: '#2196f3',
+                        borderColor: '#ed1c24',
+                        backgroundColor: '#ed1c24',
                         borderWidth: 2,
                         pointRadius: 4,
-                        pointBackgroundColor: '#2196f3',
+                        pointBackgroundColor: '#ed1c24',
                         yAxisID: 'y'
                     },
                     {
                         label: 'Repair & Maintenance USD Bn',
                         data: [820, 870, 920, 970, 1030, 1090],
-                        borderColor: '#ff9800',
-                        backgroundColor: '#ff9800',
+                        borderColor: '#d4af37',
+                        backgroundColor: '#d4af37',
                         borderWidth: 2,
                         pointRadius: 4,
-                        pointBackgroundColor: '#ff9800',
+                        pointBackgroundColor: '#d4af37',
                         yAxisID: 'y'
                     },
                     {
                         label: 'Used Car USD Tn',
                         data: [2.00, 2.14, 2.30, 2.45, 2.60, 2.70],
-                        borderColor: '#2196f3',
+                        borderColor: '#ff5252',
                         borderDash: [5, 5],
-                        backgroundColor: '#2196f3',
+                        backgroundColor: '#ff5252',
                         borderWidth: 2,
                         pointRadius: 4,
-                        pointBackgroundColor: '#2196f3',
+                        pointBackgroundColor: '#ff5252',
                         yAxisID: 'y1'
                     }
                 ]
@@ -605,19 +628,21 @@ function initPerformanceCharts() {
                 maintainAspectRatio: false,
                 interaction: { mode: 'index', intersect: false },
                 plugins: {
-                    legend: { position: 'top', labels: { usePointStyle: true, boxWidth: 8 } }
+                    legend: { position: 'top', labels: { usePointStyle: true, boxWidth: 8, color: cColors.text } }
                 },
                 scales: {
                     x: {
-                        title: { display: true, text: 'Year' },
-                        grid: { color: 'rgba(255, 255, 255, 0.05)' }
+                        title: { display: true, text: 'Year', color: cColors.text },
+                        grid: { color: cColors.grid },
+                        ticks: { color: cColors.text }
                     },
                     y: {
                         type: 'linear',
                         display: true,
                         position: 'left',
-                        title: { display: true, text: 'USD Billion' },
-                        grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                        title: { display: true, text: 'USD Billion', color: cColors.text },
+                        grid: { color: cColors.grid },
+                        ticks: { color: cColors.text },
                         min: 450,
                         max: 1150
                     },
@@ -625,8 +650,9 @@ function initPerformanceCharts() {
                         type: 'linear',
                         display: true,
                         position: 'right',
-                        title: { display: true, text: 'USD Trillion' },
+                        title: { display: true, text: 'USD Trillion', color: cColors.text },
                         grid: { drawOnChartArea: false },
+                        ticks: { color: cColors.text },
                         min: 1.9,
                         max: 2.8
                     }
@@ -635,48 +661,58 @@ function initPerformanceCharts() {
         });
     }
 
-    const cCtx = document.getElementById('companyGraph');
-    if (cCtx) {
-        new Chart(cCtx, {
+    const tCtx = document.getElementById('tableGraph');
+    if (tCtx) {
+        tChart = new Chart(tCtx, {
             type: 'line',
             data: {
-                labels: ['1', '2', '3', '4', '5'],
+                labels: ['Year 1', 'Year 2', 'Year 3', 'Year 4', 'Year 5'],
                 datasets: [
                     {
                         label: 'Branches / Franchise',
                         data: [3, 8, 15, 25, 40],
-                        borderColor: '#1976d2',
-                        backgroundColor: '#1976d2',
+                        borderColor: '#ed1c24',
+                        backgroundColor: '#ed1c24',
                         borderWidth: 2,
                         pointRadius: 4,
-                        pointBackgroundColor: '#1976d2'
+                        yAxisID: 'y1'
                     },
                     {
-                        label: 'Service Jobs Index',
-                        data: [1.25, 3.75, 9.0, 20.0, 37.5],
-                        borderColor: '#f57c00',
-                        backgroundColor: '#f57c00',
+                        label: 'Spare Parts SKUs',
+                        data: [1000, 2500, 5000, 8000, 12000],
+                        borderColor: '#d4af37',
+                        backgroundColor: '#d4af37',
                         borderWidth: 2,
                         pointRadius: 4,
-                        pointBackgroundColor: '#f57c00'
+                        yAxisID: 'y'
                     },
                     {
-                        label: 'Used Vehicle Index',
-                        data: [1.2, 3.0, 7.5, 15.0, 30.0],
-                        borderColor: '#388e3c',
-                        backgroundColor: '#388e3c',
+                        label: 'Used Vehicle Deals',
+                        data: [120, 300, 750, 1500, 3000],
+                        borderColor: '#ff5252',
+                        backgroundColor: '#ff5252',
                         borderWidth: 2,
                         pointRadius: 4,
-                        pointBackgroundColor: '#388e3c'
+                        yAxisID: 'y'
                     },
                     {
-                        label: 'Revenue Growth Index',
-                        data: [1.0, 2.5, 5.0, 9.0, 15.0],
-                        borderColor: '#d32f2f',
-                        backgroundColor: '#d32f2f',
+                        label: 'Service Jobs / Year',
+                        data: [2500, 7500, 18000, 40000, 75000],
+                        borderColor: '#b71c1c',
+                        backgroundColor: '#b71c1c',
                         borderWidth: 2,
                         pointRadius: 4,
-                        pointBackgroundColor: '#d32f2f'
+                        yAxisID: 'y'
+                    },
+                    {
+                        label: 'Revenue Target (Multiplier)',
+                        data: [1, 2.5, 5, 9, 15],
+                        borderColor: cColors.rev,
+                        backgroundColor: cColors.rev,
+                        borderWidth: 2,
+                        borderDash: [5, 5],
+                        pointRadius: 4,
+                        yAxisID: 'y1'
                     }
                 ]
             },
@@ -685,16 +721,96 @@ function initPerformanceCharts() {
                 maintainAspectRatio: false,
                 interaction: { mode: 'index', intersect: false },
                 plugins: {
-                    legend: { position: 'top', labels: { usePointStyle: true, boxWidth: 8 } }
+                    legend: { position: 'top', labels: { usePointStyle: true, boxWidth: 8, color: cColors.text } }
                 },
                 scales: {
                     x: {
-                        title: { display: true, text: 'Year' },
-                        grid: { color: 'rgba(255, 255, 255, 0.05)' }
+                        grid: { color: cColors.grid },
+                        ticks: { color: cColors.text }
+                    },
+                    y: {
+                        type: 'logarithmic',
+                        display: true,
+                        position: 'left',
+                        title: { display: true, text: 'Volume / Units (Log Scale)', color: cColors.text },
+                        grid: { color: cColors.grid },
+                        ticks: { color: cColors.text }
+                    },
+                    y1: {
+                        type: 'linear',
+                        display: true,
+                        position: 'right',
+                        title: { display: true, text: 'Lower Values (Linear)', color: cColors.text },
+                        grid: { drawOnChartArea: false },
+                        ticks: { color: cColors.text }
+                    }
+                }
+            }
+        });
+    }
+
+    const cCtx = document.getElementById('companyGraph');
+    if (cCtx) {
+        cChart = new Chart(cCtx, {
+            type: 'line',
+            data: {
+                labels: ['1', '2', '3', '4', '5'],
+                datasets: [
+                    {
+                        label: 'Branches / Franchise',
+                        data: [3, 8, 15, 25, 40],
+                        borderColor: '#ed1c24',
+                        backgroundColor: '#ed1c24',
+                        borderWidth: 2,
+                        pointRadius: 4,
+                        pointBackgroundColor: '#ed1c24'
+                    },
+                    {
+                        label: 'Service Jobs Index',
+                        data: [1.25, 3.75, 9.0, 20.0, 37.5],
+                        borderColor: '#d4af37',
+                        backgroundColor: '#d4af37',
+                        borderWidth: 2,
+                        pointRadius: 4,
+                        pointBackgroundColor: '#d4af37'
+                    },
+                    {
+                        label: 'Used Vehicle Index',
+                        data: [1.2, 3.0, 7.5, 15.0, 30.0],
+                        borderColor: '#ff5252',
+                        backgroundColor: '#ff5252',
+                        borderWidth: 2,
+                        pointRadius: 4,
+                        pointBackgroundColor: '#ff5252'
+                    },
+                    {
+                        label: 'Revenue Growth Index',
+                        data: [1.0, 2.5, 5.0, 9.0, 15.0],
+                        borderColor: cColors.rev,
+                        backgroundColor: cColors.rev,
+                        borderWidth: 2,
+                        pointRadius: 4,
+                        pointBackgroundColor: cColors.rev
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: { mode: 'index', intersect: false },
+                plugins: {
+                    legend: { position: 'top', labels: { usePointStyle: true, boxWidth: 8, color: cColors.text } }
+                },
+                scales: {
+                    x: {
+                        title: { display: true, text: 'Year', color: cColors.text },
+                        grid: { color: cColors.grid },
+                        ticks: { color: cColors.text }
                     },
                     y: {
                         title: { display: false },
-                        grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                        grid: { color: cColors.grid },
+                        ticks: { color: cColors.text },
                         min: 0,
                         max: 45
                     }
@@ -702,4 +818,32 @@ function initPerformanceCharts() {
             }
         });
     }
+
+    const observer = new MutationObserver(() => {
+        cColors = getChartColors();
+        Chart.defaults.color = cColors.text;
+        
+        [mChart, tChart, cChart].forEach(chart => {
+            if (!chart) return;
+            if (chart.options.plugins && chart.options.plugins.legend && chart.options.plugins.legend.labels) {
+                chart.options.plugins.legend.labels.color = cColors.text;
+            }
+            if (chart.options.scales) {
+                Object.values(chart.options.scales).forEach(scale => {
+                    if (scale.grid) scale.grid.color = cColors.grid;
+                    if (scale.ticks) scale.ticks.color = cColors.text;
+                    if (scale.title && scale.title.text) scale.title.color = cColors.text;
+                });
+            }
+            chart.data.datasets.forEach(ds => {
+                if (ds.label === 'Revenue Target (Multiplier)' || ds.label === 'Revenue Growth Index') {
+                    ds.borderColor = cColors.rev;
+                    ds.backgroundColor = cColors.rev;
+                    if (ds.pointBackgroundColor) ds.pointBackgroundColor = cColors.rev;
+                }
+            });
+            chart.update();
+        });
+    });
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
 }
