@@ -442,17 +442,53 @@
                     }
 
                     .ovs-left-only {
-                        border-left: 1px solid var(--border-2);
-                        padding: 40px 20px;
+                        border: 1px solid var(--border-2);
+                        border-top: none;
+                        border-bottom: none;
+                        border-right: none;
+                        padding: clamp(20px, 3vw, 50px) 20px;
                         text-align: center;
                         display: flex;
                         flex-direction: column;
                         justify-content: center;
                         align-items: center;
+                        height: 100%;
+                    }
+
+                    .ovs-left-only .ovs-n {
+                        font-size: clamp(2.5rem, 4vw, 4.5rem);
+                        margin-bottom: 12px;
+                    }
+
+                    .ovs-left-only .ovs-label {
+                        font-size: clamp(0.65rem, 0.8vw, 0.9rem);
+                        line-height: 1.4;
+                    }
+
+                    .ovs-grid-custom {
+                        display: grid;
+                        grid-template-columns: repeat(4, 1fr);
+                        gap: 20px;
+                        margin-top: clamp(40px, 5vw, 80px);
+                    }
+
+                    @media (max-width: 1024px) {
+                        .ovs-grid-custom {
+                            grid-template-columns: repeat(2, 1fr);
+                        }
+                        .ovs-left-only {
+                            border: 1px solid var(--border-2); /* add borders for grid look on smaller screens */
+                            border-radius: 12px;
+                        }
+                    }
+
+                    @media (max-width: 576px) {
+                        .ovs-grid-custom {
+                            grid-template-columns: 1fr;
+                        }
                     }
                 </style>
-                <div
-                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 60px;">
+                <div class="ovs-grid-custom">
                     <div class="ovs reveal ovs-left-only" style="background: transparent;">
                         <div class="ovs-n gold"><span class="cnt" data-t="5">0</span>+</div>
                         <div class="ovs-label">Core Operating Divisions</div>
