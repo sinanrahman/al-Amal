@@ -165,7 +165,7 @@
                     & Mobility Solutions
                 </h1>
 
-                <div style="margin-bottom: 50px;">
+                <div id="hero-desc-wrapper" style="margin-bottom: 50px;">
                     <p id="hero-desc"
                         style="margin-bottom: 8px; opacity: 0.2; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden;">
                         We are building an integrated automobile business ecosystem connecting spare parts trading,
@@ -514,7 +514,7 @@
         <!-- ═══════════════════════════════════════════════════════════
      OPERATIONAL EXCELLENCE
 ═══════════════════════════════════════════════════════════ -->
-        <section class="section exc-sec" id="excellence">
+        <section class="section exc-sec" id="excellence" style="padding-bottom: 20px;">
             <div class="sec-glow-tl" aria-hidden="true"></div>
 
             <div class="container">
@@ -593,126 +593,7 @@
                     </div>
                 </div>
 
-                <!-- Performance Graphs & Forecasting Layout -->
-                <div class="exc-layout" style="margin-top: 100px; margin-bottom: 30px;">
-                    <!-- LEFT COLUMN -->
-                    <div class="exc-left" style="display: flex; flex-direction: column;">
-                        <div class="exc-live reveal" style="margin-bottom: 24px; color: var(--text-2);">
-                            <div style="width: 44px; height: 44px; border-radius: 50%; margin-bottom: 0; margin-right: 16px; background: #ee2020; color: white; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                <i class="bi bi-graph-up" style="color: white; font-size: 1.2rem;"></i>
-                            </div>
-                            <span style="letter-spacing: 4px; font-size: 0.65rem; font-weight: 700;">DESIGN VERSION 4</span>
-                        </div>
-                        <div class="red-line reveal" style="background-color: #ee2020; width: 40px; height: 3px; margin: 0 0 20px 0;"></div>
-                        <h2 class="sec-h2 reveal" style="font-size: clamp(2.5rem, 3.5vw, 3.8rem); font-weight: 800; letter-spacing: -1px; line-height: 1.05; margin-bottom: 20px;">Performance<br>Graphs &<br><em class="gold" style="color: #ee2020; font-style: italic;">Forecasting</em></h2>
-                        <div class="red-line reveal" style="background-color: #ee2020; width: 40px; height: 3px; margin: 0 0 20px 0;"></div>
-                        <p class="sec-body reveal" style="margin-bottom: 0; font-size: 1.1rem; line-height: 1.6; color: var(--text-2);">Global opportunity +<br>company 5-year expansion</p>
-                    </div>
 
-                    <!-- RIGHT COLUMN -->
-                    <div class="exc-right">
-                        <!-- TOP GRAPHS -->
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
-                            <!-- TOP LEFT -->
-                            <div class="reveal">
-                                <div style="background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); height: 100%; display: flex; flex-direction: column;">
-                                    <div style="display: flex; align-items: center; margin-bottom: 24px;">
-                                        <div style="background: #b02323; display: flex; align-items: center; justify-content: center; width: 44px; height: 38px; color: white; clip-path: polygon(0 0, 75% 0, 100% 50%, 75% 100%, 0 100%); margin-right: 15px; flex-shrink: 0;">
-                                            <i class="bi bi-globe" style="font-size: 1.1rem;"></i>
-                                        </div>
-                                        <h3 style="font-family: var(--f-display); font-size: 1.1rem; font-weight: 700; margin: 0; line-height: 1.2; color: var(--text);">
-                                            Global Automobile Opportunity<br><span style="color: #b02323;">– 2025 to 2030</span>
-                                        </h3>
-                                    </div>
-                                    <div style="position: relative; height: 250px; width: 100%; margin-bottom: 20px;">
-                                        <canvas id="marketGraph"></canvas>
-                                    </div>
-                                    <p style="text-align: center; font-size: 0.75rem; color: var(--text-2); font-style: italic; margin-top: auto;">Market graph uses publicly available market-size estimates and CAGR references for aftermarket parts, used cars, and repair/maintenance services. Use it as a website/investor visual, not as audited financial advice.</p>
-                                </div>
-                            </div>
-
-                            <!-- TOP RIGHT -->
-                            <div class="reveal">
-                                <div style="background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); height: 100%; display: flex; flex-direction: column;">
-                                    <div style="display: flex; align-items: center; margin-bottom: 24px;">
-                                        <div style="background: #b02323; display: flex; align-items: center; justify-content: center; width: 44px; height: 38px; color: white; clip-path: polygon(0 0, 75% 0, 100% 50%, 75% 100%, 0 100%); margin-right: 15px; flex-shrink: 0;">
-                                            <i class="bi bi-bar-chart-fill" style="font-size: 1.1rem;"></i>
-                                        </div>
-                                        <h3 style="font-family: var(--f-display); font-size: 1.1rem; font-weight: 700; margin: 0; line-height: 1.2; color: var(--text);">
-                                            Company 5-Year Expansion Forecast
-                                        </h3>
-                                    </div>
-                                    <div style="position: relative; height: 250px; width: 100%; margin-bottom: 20px;">
-                                        <canvas id="companyGraph"></canvas>
-                                    </div>
-                                    <p style="text-align: center; font-size: 0.75rem; color: var(--text-2); font-style: italic; margin-top: auto;">Company graph uses sample internal planning targets. Replace with audited or approved company targets before publishing.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- BOTTOM GRAPH FULL WIDTH -->
-                <div class="reveal" style="margin-bottom: 20px;">
-                    <div style="background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); display: flex; flex-wrap: wrap; gap: 40px;">
-                        <!-- Graph section -->
-                        <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column;">
-                            <div style="display: flex; align-items: center; margin-bottom: 24px;">
-                                <div style="background: #b02323; display: flex; align-items: center; justify-content: center; width: 44px; height: 38px; color: white; clip-path: polygon(0 0, 75% 0, 100% 50%, 75% 100%, 0 100%); margin-right: 15px; flex-shrink: 0;">
-                                    <i class="bi bi-bullseye" style="font-size: 1.1rem;"></i>
-                                </div>
-                                <h3 style="font-family: var(--f-display); font-size: 1.1rem; font-weight: 700; margin: 0; line-height: 1.2; color: var(--text);">
-                                    5-Year Consolidated Growth Overview
-                                </h3>
-                            </div>
-                            <div style="position: relative; height: 350px; width: 100%;">
-                                <canvas id="tableGraph"></canvas>
-                            </div>
-                        </div>
-
-                        <!-- Stats section -->
-                        <div style="width: 200px; display: flex; flex-direction: column; justify-content: center; gap: 40px; border-left: 1px solid var(--border); padding-left: 30px; flex-shrink: 0;">
-                            <!-- Stat 1 -->
-                            <div style="display: flex; align-items: center; gap: 15px;">
-                                <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--bg2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                    <i class="bi bi-bar-chart-fill" style="color: #b02323; font-size: 1.2rem;"></i>
-                                </div>
-                                <div>
-                                    <div style="font-size: 1.6rem; font-weight: 800; color: #b02323; line-height: 1; margin-bottom: 4px;">5</div>
-                                    <div style="font-size: 0.75rem; color: var(--text-2); line-height: 1.3;">Years of Strategic<br>Expansion</div>
-                                </div>
-                            </div>
-                            <!-- Stat 2 -->
-                            <div style="display: flex; align-items: center; gap: 15px;">
-                                <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--bg2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                    <i class="bi bi-globe" style="color: #b02323; font-size: 1.2rem;"></i>
-                                </div>
-                                <div>
-                                    <div style="font-size: 1.6rem; font-weight: 800; color: #b02323; line-height: 1; margin-bottom: 4px;">3</div>
-                                    <div style="font-size: 0.75rem; color: var(--text-2); line-height: 1.3;">Global Market<br>Segments</div>
-                                </div>
-                            </div>
-                            <!-- Stat 3 -->
-                            <div style="display: flex; align-items: center; gap: 15px;">
-                                <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--bg2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                    <i class="bi bi-bullseye" style="color: #b02323; font-size: 1.2rem;"></i>
-                                </div>
-                                <div>
-                                    <div style="font-size: 1.6rem; font-weight: 800; color: #b02323; line-height: 1; margin-bottom: 4px;">1</div>
-                                    <div style="font-size: 0.75rem; color: var(--text-2); line-height: 1.3;">Unified Growth<br>Strategy</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- DISCLAIMER -->
-                <div class="reveal">
-                    <p style="font-size: 0.75rem; color: var(--text-3); line-height: 1.5; margin: 0; font-style: italic;">
-                        Source: Public market reports, industry research, and internal planning data.<br>
-                        <strong style="color: var(--text); font-style: normal;">For investor presentation use only. Not financial advice.</strong>
-                    </p>
-                </div>
 
             </div>
         </section>
@@ -721,7 +602,7 @@
         <!-- ═══════════════════════════════════════════════════════════
      2030 STRATEGIC TRAJECTORY
 ═══════════════════════════════════════════════════════════ -->
-        <section class="section traj-sec" id="trajectory">
+        <section class="section traj-sec" id="trajectory" style="padding-top: 40px;">
             <div class="container">
                 <h2 class="sec-h2 reveal" style="font-size: clamp(3rem, 5vw, 4rem); font-weight: 800; letter-spacing: -1px; line-height: 1.1; margin-bottom: 10px;">The 2030 Strategic<br><span style="color: #b02323;">Trajectory</span></h2>
                 <div class="red-line reveal" style="background-color: #b02323; width: 60px; height: 3px; margin: 20px 0;"></div>
